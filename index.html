@@ -6,25 +6,25 @@
 <title>审核员资质查询系统</title>
 <style>
 :root {
-  --bg: #1a2332;
-  --surface: #243044;
-  --surface2: #364458;
-  --border: #4a566a;
-  --text: #e8edf5;
-  --text-dim: #9ba8bd;
-  --accent: #38bdf8;
-  --accent2: #818cf8;
-  --green: #4ade80;
-  --yellow: #fbbf24;
-  --red: #f87171;
-  --orange: #fb923c;
-  --purple: #c084fc;
-  --pink: #f472b6;
+  --bg: #eef2f7;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  --border: #cbd5e1;
+  --text: #1e293b;
+  --text-dim: #64748b;
+  --accent: #0284c7;
+  --accent2: #6366f1;
+  --green: #16a34a;
+  --yellow: #ca8a04;
+  --red: #dc2626;
+  --orange: #ea580c;
+  --purple: #9333ea;
+  --pink: #db2777;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  background: linear-gradient(160deg, #1e2a3d 0%, #1a2332 50%, #19202e 100%);
+  background: linear-gradient(160deg, #e8eef5 0%, #eef2f7 50%, #e2e8f0 100%);
   color: var(--text);
   min-height: 100vh;
   padding: 20px;
@@ -33,12 +33,13 @@ body {
 header {
   text-align: center;
   padding: 28px 20px 20px;
-  background: linear-gradient(135deg, #243044 0%, #1a2332 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4fa 100%);
   border-radius: 16px;
   border: 1px solid var(--border);
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 header h1 {
   font-size: 28px;
@@ -51,8 +52,8 @@ header h1 {
 .update-time { color: var(--text-dim); font-size: 13px; }
 
 .warning-banner {
-  background: linear-gradient(135deg, rgba(248,113,113,0.12) 0%, rgba(248,113,113,0.06) 100%);
-  border: 1px solid rgba(248,113,113,0.35);
+  background: linear-gradient(135deg, rgba(220,38,38,0.06) 0%, rgba(220,38,38,0.03) 100%);
+  border: 1px solid rgba(220,38,38,0.25);
   border-radius: 12px;
   padding: 12px 20px;
   margin-bottom: 16px;
@@ -76,6 +77,7 @@ header h1 {
   border: 1px solid var(--border);
   padding: 24px;
   margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .search-box {
   display: flex;
@@ -88,7 +90,7 @@ header h1 {
   font-size: 16px;
   border: 2px solid var(--border);
   border-radius: 12px;
-  background: var(--bg);
+  background: var(--surface2);
   color: var(--text);
   outline: none;
   transition: border-color 0.2s;
@@ -102,7 +104,7 @@ header h1 {
   border: none;
   border-radius: 12px;
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-  color: var(--bg);
+  color: #fff;
   cursor: pointer;
   transition: opacity 0.2s;
   white-space: nowrap;
@@ -128,6 +130,7 @@ header h1 {
   border: 1px solid var(--border);
   padding: 24px;
   animation: fadeIn 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -161,7 +164,14 @@ header h1 {
   background: var(--surface2);
   color: var(--text-dim);
 }
-.meta-tag.auditor-num { background: rgba(56,189,248,0.15); color: var(--accent); }
+.meta-tag.auditor-num {
+  background: rgba(2,132,199,0.12);
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border: 1px solid rgba(2,132,199,0.3);
+}
 .meta-tag.status { background: rgba(74,222,128,0.15); color: var(--green); }
 .meta-tag.status.suspended { background: rgba(248,113,113,0.15); color: var(--red); }
 .meta-tag.area { background: rgba(129,140,248,0.15); color: var(--accent2); }
@@ -178,7 +188,7 @@ header h1 {
   transition: all 0.2s;
 }
 .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-.copy-btn.copied { background: var(--green); color: var(--bg); border-color: var(--green); }
+.copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
 
 .info-grid {
   display: grid;
@@ -186,7 +196,7 @@ header h1 {
   gap: 16px;
 }
 .info-block {
-  background: var(--bg);
+  background: var(--surface2);
   border-radius: 12px;
   padding: 16px;
   border: 1px solid var(--border);
@@ -227,12 +237,12 @@ header h1 {
   cursor: pointer;
   transition: all 0.15s;
 }
-.code-tag.fssc { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
-.code-tag.fssc.iso { background: rgba(56,189,248,0.12); color: var(--accent); border: 1px solid rgba(56,189,248,0.3); }
-.code-tag.haccp { background: rgba(251,191,36,0.12); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
-.code-tag.qms { background: rgba(56,189,248,0.12); color: var(--accent); border: 1px solid rgba(56,189,248,0.3); }
-.code-tag.ems { background: rgba(251,146,60,0.12); color: var(--orange); border: 1px solid rgba(251,146,60,0.3); }
-.code-tag.ohsas { background: rgba(248,113,113,0.12); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+.code-tag.fssc { background: rgba(22,163,74,0.1); color: var(--green); border: 1px solid rgba(22,163,74,0.25); }
+.code-tag.fssc.iso { background: rgba(2,132,199,0.1); color: var(--accent); border: 1px solid rgba(2,132,199,0.25); }
+.code-tag.haccp { background: rgba(202,138,4,0.1); color: var(--yellow); border: 1px solid rgba(202,138,4,0.25); }
+.code-tag.qms { background: rgba(2,132,199,0.1); color: var(--accent); border: 1px solid rgba(2,132,199,0.25); }
+.code-tag.ems { background: rgba(234,88,12,0.1); color: var(--orange); border: 1px solid rgba(234,88,12,0.25); }
+.code-tag.ohsas { background: rgba(220,38,38,0.1); color: var(--red); border: 1px solid rgba(220,38,38,0.25); }
 .code-tag:hover { transform: scale(1.05); }
 .code-tag .scope-label {
   font-size: 10px;
@@ -242,17 +252,21 @@ header h1 {
 
 .ccaa-table { width: 100%; border-collapse: collapse; }
 .ccaa-table th, .ccaa-table td {
-  padding: 8px 12px;
+  padding: 10px 12px;
   text-align: left;
   font-size: 13px;
   border-bottom: 1px solid var(--border);
 }
 .ccaa-table th { color: var(--text-dim); font-weight: 600; }
 .ccaa-table td { color: var(--text); }
-.ccaa-table td.reg-num { font-family: 'Consolas', 'Monaco', monospace; color: var(--purple); }
+.ccaa-table td.reg-num {
+  font-family: 'Consolas', 'Monaco', monospace;
+  color: var(--purple);
+  font-size: 16px;
+  font-weight: 600;
+}
 .ccaa-table td.domain-cell {
   color: var(--text-dim);
-  opacity: 0.4;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -260,6 +274,22 @@ header h1 {
   cursor: default;
 }
 .ccaa-table tr:last-child td { border-bottom: none; }
+
+.ccaa-copy-btn {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+  vertical-align: middle;
+}
+.ccaa-copy-btn:hover { border-color: var(--purple); color: var(--purple); }
+.ccaa-copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
 
 .no-data { color: var(--text-dim); font-size: 13px; font-style: italic; }
 
@@ -289,8 +319,8 @@ footer a { color: var(--accent); text-decoration: none; }
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(30,42,61,0.6) 0%, rgba(36,48,68,0.4) 100%);
-  border: 1px solid rgba(74,86,106,0.4);
+  background: linear-gradient(180deg, rgba(241,245,249,0.8) 0%, rgba(226,232,240,0.5) 100%);
+  border: 1px solid rgba(203,213,225,0.6);
 }
 .cowhorse-road .ground {
   position: absolute;
@@ -298,7 +328,7 @@ footer a { color: var(--accent); text-decoration: none; }
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(148,163,184,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(100,116,139,0.3), transparent);
 }
 .cowhorse-road .road-line {
   position: absolute;
@@ -306,7 +336,7 @@ footer a { color: var(--accent); text-decoration: none; }
   left: 0;
   right: 0;
   height: 1px;
-  background-image: repeating-linear-gradient(90deg, rgba(148,163,184,0.2) 0, rgba(148,163,184,0.2) 8px, transparent 8px, transparent 20px);
+  background-image: repeating-linear-gradient(90deg, rgba(100,116,139,0.2) 0, rgba(100,116,139,0.2) 8px, transparent 8px, transparent 20px);
   animation: road-scroll 0.6s linear infinite;
 }
 @keyframes road-scroll { from { background-position-x: 0; } to { background-position-x: -20px; } }
@@ -569,10 +599,14 @@ function renderPerson(p) {
   html += '<div class="info-block-title ccaa"><span class="icon"></span>CCAA 注册号 (' + p.ccaa_registrations.length + ')</div>';
   if (p.ccaa_registrations.length > 0) {
     html += '<table class="ccaa-table"><thead><tr><th>注册领域</th><th>CCAA注册号</th></tr></thead><tbody>';
-    p.ccaa_registrations.forEach(function(c) {
-      html += '<tr><td class="domain-cell">' + esc(c.domain) + '</td><td class="reg-num">' + esc(c.reg_number) + '</td></tr>';
+    p.ccaa_registrations.forEach(function(c, idx) {
+      html += '<tr><td class="domain-cell">' + esc(c.domain) + '</td><td class="reg-num">' + esc(c.reg_number) + '<button class="ccaa-copy-btn" onclick="copyCCAA(this,' + idx + ')" data-reg="' + esc(c.reg_number) + '">复制</button></td></tr>';
     });
     html += '</tbody></table>';
+    if (p.ccaa_registrations.length > 1) {
+      var allRegs = p.ccaa_registrations.map(function(c) { return c.reg_number; }).join('\n');
+      html += '<div style="margin-top:8px"><button class="ccaa-copy-btn" style="font-size:12px;padding:4px 12px" onclick="copyCCAAAll(this)" data-all="' + esc(allRegs) + '">一键复制全部注册号</button></div>';
+    }
   } else {
     html += '<div class="no-data">无 CCAA 注册号数据</div>';
   }
@@ -648,6 +682,35 @@ function fallbackCopy(text) {
   textarea.select();
   try { document.execCommand('copy'); } catch(e) {}
   document.body.removeChild(textarea);
+}
+
+function copyCCAA(btn, idx) {
+  var reg = btn.getAttribute('data-reg');
+  function done() {
+    var orig = btn.textContent;
+    btn.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(reg).then(done).catch(function() { fallbackCopy(reg); done(); });
+  } else {
+    fallbackCopy(reg); done();
+  }
+}
+
+function copyCCAAAll(btn) {
+  var all = btn.getAttribute('data-all');
+  function done() {
+    btn.textContent = '已复制全部';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = '一键复制全部注册号'; btn.classList.remove('copied'); }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(all).then(done).catch(function() { fallbackCopy(all); done(); });
+  } else {
+    fallbackCopy(all); done();
+  }
 }
 </script>
 </body>
